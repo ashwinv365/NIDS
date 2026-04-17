@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface-0: #0a0a0f;
+  --surface-1: #0f0f17;
+  --surface-2: #14141f;
+  --surface-3: #1a1a28;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --cyan: #00d4ff;
+  --red: #ff2244;
+  --amber: #ffaa00;
+  --green: #00ff88;
+  --purple: #a855f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Custom scan line animation */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.5); }
+  50% { box-shadow: 0 0 0 5px rgba(0, 255, 136, 0); }
+}
+
+@keyframes pulseGlowRed {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 34, 68, 0.6); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 34, 68, 0); }
+}
+
+.animate-slide-in-right { animation: slideInRight 0.35s ease-out; }
+.animate-slide-in-down  { animation: slideInDown 0.3s ease-out; }
+.animate-fade-up        { animation: fadeUp 0.5s ease-out both; }
+.animate-blink          { animation: blink 1.4s ease-in-out infinite; }
+.animate-pulse-glow     { animation: pulseGlow 2s ease-in-out infinite; }
+.animate-pulse-glow-red { animation: pulseGlowRed 1.5s ease-in-out infinite; }
+
+/* Stagger utility classes */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* Card base */
+.nids-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+.nids-card:hover {
+  border-color: var(--border-hover);
+}
+
+/* Threat severity badges */
+.badge-critical { background: rgba(255, 34, 68, 0.15);  color: #ff4466; border: 1px solid rgba(255,34,68,0.3); }
+.badge-high     { background: rgba(255,102, 34, 0.15);  color: #ff7744; border: 1px solid rgba(255,102,34,0.3); }
+.badge-medium   { background: rgba(255,170,  0, 0.15);  color: #ffbb22; border: 1px solid rgba(255,170,0,0.3); }
+.badge-low      { background: rgba(  0,204,255, 0.12);  color: #22ccff; border: 1px solid rgba(0,204,255,0.25); }
+.badge-benign   { background: rgba(  0,255,136, 0.10);  color: #00dd77; border: 1px solid rgba(0,255,136,0.2); }
+
+/* Mono values */
+.mono { font-family: var(--font-geist-mono, 'Courier New', monospace); }

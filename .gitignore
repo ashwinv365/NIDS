@@ -1,0 +1,15 @@
+# Node/Frontend
+node_modules/
+.next/
+dist/
+build/
+.env
+
+# Python/Backend
+__pycache__/
+venv/
+env/
+*.pyc
+
+# Mac OS junk files (if applicable)
+.DS_Store
