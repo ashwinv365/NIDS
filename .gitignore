@@ -13,3 +13,5 @@ env/
 
 # Mac OS junk files (if applicable)
 .DS_Store
+
+*.pkl
